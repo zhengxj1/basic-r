@@ -1,0 +1,42 @@
+1. 单个if语句
+if(cond) {expr}
+x <- c("Bio","Info","Cloud","BioInfoCloud")
+if("BioInfoCloud" %in% x) {
+   print("BioInfoCloud is found")
+} 
+[1] "BioInfoCloud is found"
+ 
+2. if else函数
+如果if后的条件满足，则执行if与else间的语句，否则执行离else最近的一条语句，如果if块和else块有多条语句，需要将多个语句放在花括号中。
+if(condition) {expr1}else{expr2}
+ 
+x=2
+if(x==2) {print("x==2")}else{print("x!=2")}
+[1] "x==2"
+ 
+x=3
+if(x==2) {print("x==2")}else{print("x!=2")}
+[1] "x!=2"
+ 
+x=2
+if(x==2) {print("x==2")
+print("x=2*1")}else{print("x!=2")}
+[1] "x!=2"
+[1] "x=2*1"
+ 
+3.多个if...else嵌套情况
+(1)if(cond1）{expr1} else if(cond2){exp2} ... else{exprx} or
+(2)if(cond){if(cond1){expr1} else{expr2} else if(cond2}{if(cond3}...else...} else...
+ 
+x=20
+if(x<=60){print("不及格")
+    } else if(x>60 & x<=70){print("及格")
+    } else if(x>70 & x<=80){print("良好")
+    }else if(x>80 & x<100){print("优秀")
+    }else if(x==100){print("满分")
+    } else{print("x not found")
+    }
+ 
+4 ifelse()
+diamonds2 <- diamonds %>%
+mutate(y = ifelse(y < 3 | y > 20, NA, y))
