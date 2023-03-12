@@ -1,0 +1,80 @@
+.  ## 代表当前目录
+.. ## 代表上一层目录
+/  ## 代表根目录
+ 
+ 
+files <- list.files() ###获取路径下文件名；
+for (f in files){
+  newname<-sub('-01A-01R.gene.quantification','',f) #将原文件中的字符""，替换为字符""
+  file.rename(f,newname) ##重命名文件名
+}   # 批量更改文件名，方便后面批量读取和匹配
+ 
+ 
+ 
+clinical <- read.csv(file="./TARGET OS.csv", head = T)
+colnames(clinical)[1] <- "patients" ##重命名列名
+write.csv(clinical, file = "clinical.csv", row.names = F)
+ 
+patients <- clinical$patients
+ 
+ls <- list.files()[-1]  ###获取路径下文件名，同时去除第一个文件名
+ls <- sub(".txt","",ls)  ###替换
+ 
+head(ls)
+ 
+included <- clinical[match(ls, clinical$patients),] ####匹配is和clinical$patients；取clinical匹配的行
+ 
+aa <- na.omit(included$patients)###去除某一列为NA的值，取得行名
+ 
+head(aa)
+ 
+included <- included[match(aa,included$patients),]
+ 
+match(aa,ls)
+ 
+先把数据down下来，把gene表达信息和临床数据的患者编号匹配上
+ 
+setwd("E:/scRNA seq/osteosarcoma/target/gene copy")
+ 
+filenames <- list.files()
+for (file in filenames) {
+  if (!exists("all.data")) {
+    all.data <- read.table(file, sep = "\t",
+                          header = TRUE)[,4]
+  }
+  if (exists("all.data")) {
+    new.data <- read.table(file, sep = "\t",
+                          header = TRUE)[,4]
+    all.data <- cbind(all.data, new.data)
+  }
+}
+ 
+setwd("G:/down")
+memory.limit(size=100000)
+library(tidyverse)
+gs()
+filenames <- list.files()
+for (file in filenames) {
+  if (!exists("all.data")) {
+    all.data <- read.table(file, sep = "\t",
+                          header = TRUE)[,c(1,4)]
+colnames(all.data)[2]=file
+}
+  if (exists("all.data")) {
+    new.data <- read.table(file, sep = "\t",
+                          header = TRUE)[,c(1,4)]
+colnames(new.data)[2]=file
+    all.data = merge(all.data, new.data,by.x="Name",by.y="Name")
+  }
+}
+ 
+ 
+ 
+dim(all.data)
+counts <- all.data[,-1]
+dim(counts)
+ls <- sub(".txt","",filenames)
+colnames(counts) <- ls
+rownames(counts) <- genes
+ 
+然后循环批量读取表达量数据，这次选取读TPM数。
