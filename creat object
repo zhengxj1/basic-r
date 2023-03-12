@@ -1,0 +1,11 @@
+assign
+> for (i in 1:5) {
+ assign(paste0("name", i), i * 10)      ## 批量生成5个变量
+ }
+> name1
+[1] 10
+> name2
+[1] 20
+> name5
+[1] 50
+
