@@ -1,0 +1,46 @@
+library(tidyverse)
+library(data.table)
+library(stringr)
+ 
+data(mtcars)  ##演示数据集
+ 
+data=fread("",header = T, sep = '\t',data.table = F)
+data=fread("",header = T, sep = ',',data.table = F)
+data=read.table("data.csv",header=TRUE,sep=",")
+sep 是函数的形式参数，csv 文件是用逗号分隔的，故而 sep = "," tsv 文件是用制表符分隔的，故而 sep = "\t"
+
+Alt + “-”: 输入R推荐使用的赋值运算符“<-”
+Tab 输入变量一半名称时快速锁定
+Ctrl+ ↑ 选错变量时快速返回
+ 
+ 
+Ctrl + 1：移动鼠标至代码区(左上区)
+Ctrl + 2：移动鼠标到控制台(左下区)
+Ctrl + L：对控制台(左下区)清屏
+Ctrl + Shift + N: 新建一个R脚本文件
+Ctrl + W / Ctrl + Shift + W: 关闭一个/所有脚本程序文档
+Ctrl + O / Ctrl + S: 打开工作目录的文件/保存文件到目录(直接到工作目录)
+Ctrl + Enter: 运行一行脚本
+Ctrl + Shift + S：运行整个脚本
+Ctrl + Shift + Enter: 运行该文件所有程序行
+Ctrl + Shift + M: 输入“%>% ”管道符号
+Ctrl + Shift + 1 使代码区(左上区)全屏
+Ctrl + Shift + 3 使代码区(右下区)全屏
+Ctrl+shift+C 批量注释
+ls()#查看当前工作空间中的对象(可与Global Environment里对比)
+ 
+rm(x)#删除当前工作空间中的一个对象x
+ 
+rm(list = ls())#删除工作空间所有变量
+ 
+ls("package:stringr") ##查看包的所有函数
+ 
+num_char <- as.character(num)  # 将整数型转换为字符型
+weight_char <- as.character(weight) # 将数字型转换为字符型
+married_char <- as.character(married) # 将因子型转换为字符型
+as.numeric()  #转换为数值型
+as.data.frame()
+as.matrix()
+ 
+数据读取
+data[row.names(data)=="ENSG00000223972.5",] #读取行名为ENSG00000223972.5的行
