@@ -1,0 +1,12 @@
+distinct(data,gene,.keep_all = T)  ###去除gene名字相同的行
+avereps(expr[,-1],ID = expr$X) # limma包函数，对重复基因名取平均表达量，然后将基因名作为行名
+ 
+unique()适用于向量
+a=c(1,2,2,3,3,3,3,4,5)
+b=unique(a)
+> b
+[1] 1 2 3 4 5
+ 
+duplicated()适用于数据框
+ 
+distinct（data，列名，.keep_all=F）
