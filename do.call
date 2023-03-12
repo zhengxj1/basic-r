@@ -1,0 +1,11 @@
+do.call 的功能就是执行一个函数，而这个函数的参数呢，放在一个list里面, 是list的每个子元素。
+x <- list(
+    c(1, 2),
+    c(3, 4),
+    c(5, 6)
+)
+do.call(sum, x)
+
+ dat <- list(matrix(1:25, ncol = 5), matrix(4:28, ncol = 5), matrix(21:45, ncol=5))
+ dat_bind <- do.call(cbind,dat)
+ dat_bind <- do.call(rbind,dat)
