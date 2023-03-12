@@ -1,0 +1,17 @@
+# commands就是要重复执行的代码，condition就是给定重复条件。
+repeat { 
+   commands 
+   if(condition) {
+      break
+   }
+}
+ 
+ 
+bio = 1
+repeat { 
+   print(bio)
+   bio = bio +1
+   if(bio>5) {
+      break
+   }
+}
