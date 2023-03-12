@@ -1,0 +1,47 @@
+#grep, grepl, regexpr, gregexpr, regexec and gregexec search for matches to argument pattern within each element of a character vector: 
+#they differ in the format of and amount of detail in the results.
+#sub and gsub perform replacement of the first and all matches respectively.
+
+grep(pattern, x, ignore.case = FALSE, perl = FALSE, value = FALSE,
+     fixed = FALSE, useBytes = FALSE, invert = FALSE)
+
+grepl(pattern, x, ignore.case = FALSE, perl = FALSE,
+      fixed = FALSE, useBytes = FALSE)
+
+sub(pattern, replacement, x, ignore.case = FALSE, perl = FALSE,
+    fixed = FALSE, useBytes = FALSE)
+
+gsub(pattern, replacement, x, ignore.case = FALSE, perl = FALSE,
+     fixed = FALSE, useBytes = FALSE)
+
+regexpr(pattern, text, ignore.case = FALSE, perl = FALSE,
+        fixed = FALSE, useBytes = FALSE)
+
+gregexpr(pattern, text, ignore.case = FALSE, perl = FALSE,
+         fixed = FALSE, useBytes = FALSE)
+
+regexec(pattern, text, ignore.case = FALSE, perl = FALSE,
+        fixed = FALSE, useBytes = FALSE)
+
+gregexec(pattern, text, ignore.case = FALSE, perl = FALSE,
+        fixed = FALSE, useBytes = FALSE)
+ 
+“.”是万能字符，需要
+b=gsub("[.]","-",a)
+b=gsub("\\.","-",a)
+b=gsub(".","-",a,fixed=T)
+
+
+grep(pattern, x, ignore.case = FALSE, perl = FALSE, value = FALSE, fixed = FALSE, useBytes = FALSE, invert = FALSE)
+各参数的含义如下：
+（1）pattern: 字符串类型，正则表达式，指定搜索模式，当将fixed参数设置为TRUE时，也可以是一个待搜索的字符串。
+（2）x : 字符串向量，用于被搜索的字符串。
+（3）ignore.case: 是否忽略大小写。为FALSE时，大小写敏感，为TRUE时，忽略大小写。
+（4）perl: 用于指定是否Perl兼容的正则表达式
+（5）value：逻辑值，为FALSE时，grep返回搜索结果的位置信息，为TRUE时，返回结果位置的值。
+（6）fixed:逻辑值，为TRUE时，按pattern指定的字符串进行原样搜索，且会忽略产生冲突的参数设置。
+（7） useBytes：逻辑值，如果为真，则按字节进行匹配，而不是按字符进行匹配。
+（8）invert：逻辑值，如果为TRUE，则返回未匹配项的索引或值，也就是反向搜索。
+ 
+name=grep(pattern, x,)
+name=x[name]
