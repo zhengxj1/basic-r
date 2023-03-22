@@ -28,7 +28,9 @@ Ctrl + Shift + 1 使代码区(左上区)全屏
 Ctrl + Shift + 3 使代码区(右下区)全屏
 Ctrl+shift+C 批量注释
 ls()#查看当前工作空间中的对象(可与Global Environment里对比)
- 
+remove.packages("copykat")
+detach("package:copykat")
+
 rm(x)#删除当前工作空间中的一个对象x
  
 rm(list = ls())#删除工作空间所有变量
