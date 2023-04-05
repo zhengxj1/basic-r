@@ -45,3 +45,6 @@ grep(pattern, x, ignore.case = FALSE, perl = FALSE, value = FALSE, fixed = FALSE
  
 name=grep(pattern, x,)
 name=x[name]
+
+paste()与paste0()不仅可以连接多个字符串，还可以将对象自动转换为字符串再相连，另外还能处理向量
+paste0函数，默认是sep=""(两个函数的唯一区别)
