@@ -1,27 +1,29 @@
-分散程度度量
+##分散程度度量
 sd()
 IQR() #四分位距
 mad() #绝对中位差
  
-秩的度量
+##秩的度量
 mean()
 median()
 quantile(x, 0.25) #quantile(x, 0.25) 会找出x 中按从小到大顺序大于前25% 而小于后75% 的值
 max(x)
 fivenum() #返回五个数据：最小值、下四分位数、中位数、上四分位数、最大值
  
-定位度量
+##定位度量
 first(x)
 nth(x, 2)
 last(x)
  
-计数
+##计数
 n() #dplyr为count()
 sum(!is.na(x))  #非缺失值的数量
 n_distinct(x)   #唯一值的数量
  
-逻辑值的计数和比例
+##逻辑值的计数和比例
 sum(x > 10)
 mean(y == 0)
 
-
+###table
+prop.table
+table
