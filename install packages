@@ -1,0 +1,3 @@
+devtools::install_local("stxBrain.SeuratData_0.1.1.tar.gz")
+
+devtools::install_github()
