@@ -1,0 +1,15 @@
+# 创建一个示例数据框
+df <- data.frame(A = 1:5, B = 6:10, C = 11:15)
+
+# 使用循环将数据框的列转为对象
+for (col in colnames(df)) {
+  assign(col, df[[col]])
+}
+
+# 创建一个示例数据框
+df <- data.frame(A = 1:5, B = 6:10, C = 11:15)
+
+# 使用apply函数将数据框的列转为对象
+apply(df, 2, function(x) {
+  assign(colnames(df)[which(df == x)], x)
+})
